@@ -1,0 +1,7 @@
+read message
+
+for user ; do
+  if who | grep $user > /dev/null ; then
+    echo $message | write $user
+  fi
+done

@@ -1,0 +1,17 @@
+dir=$1
+
+if ! [ -d ~/$dir ] ; then
+  mkdir ~/$dir
+fi
+
+count=0
+
+for file in `ls` ; do
+  if [ -f $file -a -r $file ] ; then
+    cp $file ~/$dir
+  else
+    : $((count += 1))
+  fi
+done
+
+echo The count of the rest is $count

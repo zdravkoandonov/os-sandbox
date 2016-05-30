@@ -1,0 +1,12 @@
+dir=$1
+size=$2
+
+if [ -d $dir ] ; then
+  for file in `ls $dir` ; do
+    if [ -f $dir/$file -a `cat $dir/$file | wc -m` -gt $size ] ; then
+      echo $file
+    fi
+  done
+else
+  echo No directory with name $dir
+fi

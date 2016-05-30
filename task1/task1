@@ -1,0 +1,18 @@
+file=$1
+dir=$2
+
+if ! [ -d $dir ] ; then
+  mkdir $dir
+fi
+
+new_file=task1.out
+
+while read username ; do
+  if who | grep $username > /dev/null ; then
+    echo $username
+  else
+    echo $username >> $dir/$new_file
+  fi
+done < $file
+
+chmod 600 $dir/$new_file

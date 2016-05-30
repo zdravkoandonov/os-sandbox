@@ -1,0 +1,12 @@
+cnt1=`ls $1 | grep .out$ | wc -l`
+cnt2=`ls $2 | grep .out$ | wc -l`
+
+if [ $cnt1 -gt $cnt2 ] ; then
+  mkdir new_dir
+  echo new_dir
+  for file in $1/* ; do
+    if [ -f $file -a -r $file -a -w $file ] ; then
+      mv $file new_dir
+    fi
+  done
+fi

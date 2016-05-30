@@ -1,0 +1,8 @@
+username=$1
+
+until who | grep $username ; do
+  echo waiting two more seconds for $username to start a session
+  sleep 2
+done
+
+echo $username started a session

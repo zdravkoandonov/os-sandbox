@@ -1,0 +1,12 @@
+cnt=`ls $1 $2 | grep .c$ | wc -l`
+
+if [ $cnt -gt 20 ] ; then
+  for file in `ls $1 $2` ; do
+    if echo $file | grep .c$ > /dev/null ; then
+      echo $file >> names
+    fi
+  done
+  chmod 444 names
+else
+  echo Total count of .c files is $cnt
+fi

@@ -1,0 +1,5 @@
+read str
+
+for file; do
+  echo $file contains $str on `grep $str $file | wc -l` lines
+done

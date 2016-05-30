@@ -1,0 +1,7 @@
+dir=$1
+
+for file in `ls $dir` ; do
+  if echo $file | grep .c$ ; then
+    gcc $dir/$file -o $dir/${file%.c}.exe &
+  fi
+done
